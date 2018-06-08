@@ -2,7 +2,18 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const liff = window.liff;  
+
 class App extends Component {
+
+  componentDidMount() {
+    window.addEventListener('load', this.initialize);
+  }
+
+  initialize() {
+    liff.init((data) => {});
+  }
+
   render() {
     return (
       <div className="App">
