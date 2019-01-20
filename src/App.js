@@ -4,10 +4,12 @@ import "./App.css";
 import { Button } from "muicss/react";
 import redis from "redis";
 
-const client = redis.createClient(
-  "ec2-174-129-114-5.compute-1.amazonaws.com",
-  37849
+// const client = redis.createClient(
+//   "ec2-174-129-114-5.compute-1.amazonaws.com",
+//   37849
 );
+
+const client = redis.createClient();
 
 client.on("connect", function() {
   console.log("connected");
