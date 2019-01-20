@@ -1,12 +1,13 @@
 {
-  "name": "myfirstliff",
+  "name": "mybot-liff",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "muicss": "^0.9.39",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "redis": "^2.8.0"
   },
   "scripts": {
     "start": "react-scripts start",

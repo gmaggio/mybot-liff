@@ -7,19 +7,17 @@ Create a LIFF app with Reactjs
 Clone the repository
 
 ```
-git clone https://github.com/kie-sp/myfirstliff.git
+git clone https://github.com/gmaggio/mybot-liff.git
 ```
 
-cd into myfirstliff directory and install
+cd into mybot-liff directory and install
 
 ```
 npm install
 ```
 
-## Running 
+## Running
 
 ```
 npm start
 ```
-
-

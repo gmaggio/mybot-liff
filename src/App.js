@@ -1,48 +1,61 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Button } from 'muicss/react';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Button } from "muicss/react";
+import redis from "redis";
 
-const liff = window.liff;  
+const client = redis.createClient(
+  "ec2-174-129-114-5.compute-1.amazonaws.com",
+  37849
+);
+
+client.on("connect", function() {
+  console.log("connected");
+});
+
+const liff = window.liff;
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      displayName : '',
-      userId : '',
-      pictureUrl : '',
-      statusMessage : ''
+      displayName: "",
+      userId: "",
+      pictureUrl: "",
+      statusMessage: ""
     };
     this.initialize = this.initialize.bind(this);
     this.closeApp = this.closeApp.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('load', this.initialize);
+    window.addEventListener("load", this.initialize);
   }
 
   initialize() {
-    liff.init(async (data) => {
+    liff.init(async data => {
       let profile = await liff.getProfile();
       this.setState({
-        displayName : profile.displayName,
-        userId : profile.userId,
-        pictureUrl : profile.pictureUrl,
-        statusMessage : profile.statusMessage
+        displayName: profile.displayName,
+        userId: profile.userId,
+        pictureUrl: profile.pictureUrl,
+        statusMessage: profile.statusMessage
       });
-    }); 
+    });
   }
 
   closeApp(event) {
     event.preventDefault();
-    liff.sendMessages([{
-      type: 'text',
-      text: "Thank you, Bye!"
-    }]).then(() => {
-      liff.closeWindow();
-    });
+    liff
+      .sendMessages([
+        {
+          type: "text",
+          text: "Thank you, Bye!"
+        }
+      ])
+      .then(() => {
+        liff.closeWindow();
+      });
   }
 
   render() {
@@ -52,13 +65,15 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <div style={{height:'20px'}}/>
+        <div style={{ height: "20px" }} />
         <p className="App-intro">
-          Display Name : {this.state.displayName} <br/>
-          User ID : {this.state.userId} <br/>
+          Display Name : {this.state.displayName} <br />
+          User ID : {this.state.userId} <br />
           Status Msg : {this.state.statusMessage}
         </p>
-        <Button color="primary" onClick={this.closeApp}>Close</Button>
+        <Button color="primary" onClick={this.closeApp}>
+          Close
+        </Button>
       </div>
     );
   }
