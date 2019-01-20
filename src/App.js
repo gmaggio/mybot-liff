@@ -5,8 +5,8 @@ import { Button } from "muicss/react";
 import redis from "redis";
 
 const client = redis.createClient(
-  "ec2-174-129-114-5.compute-1.amazonaws.com",
-  "37849"
+  37849,
+  "ec2-174-129-114-5.compute-1.amazonaws.com"
 );
 
 // const client = redis.createClient();
