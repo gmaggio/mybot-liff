@@ -8,7 +8,9 @@ import redis from "redis";
 //   37849,
 //   "ec2-174-129-114-5.compute-1.amazonaws.com"
 // );
-const client = redis.createClient();
+const client = redis.createClient(
+  "redis://h:pe1006fb64e59cea3cae4f3e94c7ca51ac918438cff6cde0290ce22d3eab6d2a2@ec2-174-129-114-5.compute-1.amazonaws.com:37849"
+);
 
 // const client = redis.createClient();
 
