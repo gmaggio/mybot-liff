@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Button } from "muicss/react";
-import redis from "redis";
 
 const liff = window.liff;
 
