@@ -22,6 +22,7 @@ const liff = window.liff;
 
 class App extends Component {
   constructor(props) {
+    console.log("test here");
     super(props);
     this.state = {
       displayName: "",
