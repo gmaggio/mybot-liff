@@ -36,15 +36,15 @@ class App extends Component {
         .then(json => {
           console.log("-----> Username:", json);
           memberName = json;
-        });
 
-      this.setState({
-        // displayName: profile.displayName,
-        displayName: `${memberName} (${profile.displayName})`,
-        userId: profile.userId,
-        pictureUrl: profile.pictureUrl,
-        statusMessage: profile.statusMessage
-      });
+          this.setState({
+            // displayName: profile.displayName,
+            displayName: `${memberName} (${profile.displayName})`,
+            userId: profile.userId,
+            pictureUrl: profile.pictureUrl,
+            statusMessage: profile.statusMessage
+          });
+        });
     });
   }
 
