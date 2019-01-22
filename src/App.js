@@ -19,12 +19,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("load", this.initialize);
+    this.initialize();
   }
 
   initialize() {
     console.log("test uhuy");
-    liff.init(async data => {
       console.log("test uhuy 123");
       let profile = await liff.getProfile();
 
@@ -47,7 +46,6 @@ class App extends Component {
         pictureUrl: profile.pictureUrl,
         statusMessage: profile.statusMessage
       }); */
-    });
   }
 
   closeApp(event) {
