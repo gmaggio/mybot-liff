@@ -22,24 +22,24 @@ class App extends Component {
     this.initialize();
   }
 
-  initialize() {
+  async initialize() {
     console.log("test uhuy");
-      console.log("test uhuy 123");
-      let profile = await liff.getProfile();
+    console.log("test uhuy 123");
+    let profile = await liff.getProfile();
 
-      console.log("-----> TEST");
+    console.log("-----> TEST");
 
-      fetch(
-        `https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`
-      ).then(txt => {
-        console.log("-----> Username:", txt);
-        this.setState({
-          displayName: txt,
-          userId: profile.userId
-        });
+    fetch(
+      `https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`
+    ).then(txt => {
+      console.log("-----> Username:", txt);
+      this.setState({
+        displayName: txt,
+        userId: profile.userId
       });
+    });
 
-      /* this.setState({
+    /* this.setState({
         // displayName: profile.displayName,
         displayName: `${memberName} (${profile.displayName})`,
         userId: profile.userId
