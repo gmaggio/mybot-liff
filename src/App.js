@@ -25,7 +25,7 @@ class App extends Component {
     //   .then(response => response.json())
     //   .then(data => this.setState({ data }));
 
-    fetch("https://jsonplaceholder.typicode.com/todos/1")
+    fetch`https://gio-mybot-api.herokuapp.com/user?query=${}`)
       .then(response => response.json())
       .then(json => console.log(json));
   }
@@ -33,8 +33,18 @@ class App extends Component {
   initialize() {
     liff.init(async data => {
       let profile = await liff.getProfile();
+      let memberName = '';
+
+      fetch`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
+        .then(response => response.json())
+        .then(json => {
+          console.log(json);
+          memberName = json;
+        });
+
       this.setState({
-        displayName: profile.displayName,
+        // displayName: profile.displayName,
+        displayName: memberName,
         userId: profile.userId,
         pictureUrl: profile.pictureUrl,
         statusMessage: profile.statusMessage
