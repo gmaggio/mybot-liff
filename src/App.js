@@ -33,9 +33,11 @@ class App extends Component {
           `https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`
         );
 
+        const data = await result.json();
+
         this.setState({
           displayName: profile.displayName,
-          userId: JSON.parse(result).data,
+          userId: data.data,
           pictureUrl: profile.pictureUrl,
           statusMessage: profile.statusMessage
         });
