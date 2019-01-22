@@ -25,12 +25,12 @@ class App extends Component {
     //   .then(response => response.json())
     //   .then(data => this.setState({ data }));
 
-    fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
+    fetch(`https://gio-mybot-api.herokuapp.com/user?query=${this.state.userId}`)
       .then(response => response.json())
       .then(json => {
         console.log("-----> Username:", json);
         this.setState({
-          displayName: this.state.userId
+          displayName: json
         });
       });
   }
