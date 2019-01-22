@@ -24,10 +24,6 @@ class App extends Component {
     // fetch("https://api.mydomain.com")
     //   .then(response => response.json())
     //   .then(data => this.setState({ data }));
-
-    fetch`https://gio-mybot-api.herokuapp.com/user?query=${}`)
-      .then(response => response.json())
-      .then(json => console.log(json));
   }
 
   initialize() {
