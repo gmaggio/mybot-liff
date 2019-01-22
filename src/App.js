@@ -41,8 +41,8 @@ class App extends Component {
       // });
 
       this.setState({
-        displayName: `${memberName} (${profile.displayName})`,
-        userId: profile.userId
+        displayName: profile.displayName,
+        userId: profile.userId,
         pictureUrl: profile.pictureUrl,
         statusMessage: profile.statusMessage
       });
