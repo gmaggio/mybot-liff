@@ -2,22 +2,6 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Button } from "muicss/react";
-import redis from "redis";
-
-// const client = redis.createClient(
-//   "redis://h:pe1006fb64e59cea3cae4f3e94c7ca51ac918438cff6cde0290ce22d3eab6d2a2@ec2-174-129-114-5.compute-1.amazonaws.com:37849"
-// );
-// const redis = require("redis"),
-/* Values are hard-coded for this example, it's usually best to bring these in via file or environment variable for production */
-const client = redis.createClient({
-  port: 37849, // replace with your port
-  host: "ec2-174-129-114-5.compute-1.amazonaws.com", // replace with your hostanme or IP address
-  password: "pe1006fb64e59cea3cae4f3e94c7ca51ac918438cff6cde0290ce22d3eab6d2a2"
-});
-
-client.on("connect", function() {
-  console.log("connected");
-});
 
 const liff = window.liff;
 
