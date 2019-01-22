@@ -28,7 +28,7 @@ class App extends Component {
       console.log(data);
       let profile = await liff.getProfile();
 
-      console.log(JSON.stringify(fetch));
+      // console.log(JSON.stringify(fetch));
 
       // console.log("-----> TEST");
 
@@ -44,7 +44,7 @@ class App extends Component {
 
       this.setState({
         displayName: profile.displayName,
-        userId: profile.userId,
+        userId: JSON.stringify(fetch()),
         pictureUrl: profile.pictureUrl,
         statusMessage: profile.statusMessage
       });
