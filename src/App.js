@@ -28,18 +28,15 @@ class App extends Component {
 
       console.log("-----> TEST");
 
-      // fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
       fetch(
-        "https://gio-mybot-api.herokuapp.com/user?query=U0f5fb32f6a062f730ce34506025d5cde"
-      )
-        .then(response => response.json())
-        .then(json => {
-          console.log("-----> Username:", json);
-          this.setState({
-            displayName: json,
-            userId: profile.userId
-          });
+        `https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`
+      ).then(txt => {
+        console.log("-----> Username:", json);
+        this.setState({
+          displayName: txt,
+          userId: profile.userId
         });
+      });
 
       /* this.setState({
         // displayName: profile.displayName,
