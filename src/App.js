@@ -30,7 +30,7 @@ class App extends Component {
       .then(json => {
         console.log("-----> Username:", json);
         this.setState({
-          displayName: `${memberName} (${this..state.userId})`
+          displayName: this.state.userId
         });
       });
   }
