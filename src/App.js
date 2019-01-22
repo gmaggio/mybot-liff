@@ -25,13 +25,15 @@ class App extends Component {
     //   .then(response => response.json())
     //   .then(data => this.setState({ data }));
 
-    fetch(`https://gio-mybot-api.herokuapp.com/user?query=${this.state.userId}`)
+    // fetch(`https://gio-mybot-api.herokuapp.com/user?query=${this.state.userId}`)
+    fetch("https://jsonplaceholder.typicode.com/todos/1")
       .then(response => response.json())
       .then(json => {
-        console.log("-----> Username:", json);
-        this.setState({
-          displayName: json
-        });
+        console.log("-----> Username:", json.title);
+        // console.log("-----> Username:", json);
+        // this.setState({
+        //   displayName: json
+        // });
       });
   }
 
