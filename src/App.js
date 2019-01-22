@@ -28,6 +28,8 @@ class App extends Component {
       console.log(data);
       let profile = await liff.getProfile();
 
+      console.log(JSON.stringify(fetch));
+
       // console.log("-----> TEST");
 
       // fetch(
