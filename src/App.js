@@ -34,13 +34,13 @@ class App extends Component {
       fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
         .then(response => response.json())
         .then(json => {
-          console.log(json);
+          console.log("-----> Username:", json);
           memberName = json;
         });
 
       this.setState({
         // displayName: profile.displayName,
-        displayName: memberName,
+        displayName: `${memberName} (${profile.displayName})`,
         userId: profile.userId,
         pictureUrl: profile.pictureUrl,
         statusMessage: profile.statusMessage
@@ -73,7 +73,7 @@ class App extends Component {
         <p className="App-intro">
           Display Name : {this.state.displayName} <br />
           User ID : {this.state.userId} <br />
-          Status Msg : {this.state.statusMessage}
+          {/* Status Msg : {this.state.statusMessage} */}
         </p>
         <Button color="primary" onClick={this.closeApp}>
           Close
