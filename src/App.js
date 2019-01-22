@@ -24,30 +24,29 @@ class App extends Component {
     // fetch("https://api.mydomain.com")
     //   .then(response => response.json())
     //   .then(data => this.setState({ data }));
-
-    // fetch(`https://gio-mybot-api.herokuapp.com/user?query=${this.state.userId}`)
-    fetch("https://jsonplaceholder.typicode.com/todos/1")
-      .then(response => response.json())
-      .then(json => {
-        console.log("-----> Username:", json.title);
-        // console.log("-----> Username:", json);
-        // this.setState({
-        //   displayName: json
-        // });
-      });
   }
 
   initialize() {
     liff.init(async data => {
       let profile = await liff.getProfile();
 
-      this.setState({
+      fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
+        .then(response => response.json())
+        .then(json => {
+          console.log("-----> Username:", json);
+          this.setState({
+            displayName: json,
+            userId: profile.userId
+          });
+        });
+
+      /* this.setState({
         // displayName: profile.displayName,
-        // displayName: `${memberName} (${profile.displayName})`,
+        displayName: `${memberName} (${profile.displayName})`,
         userId: profile.userId
-        // pictureUrl: profile.pictureUrl,
-        // statusMessage: profile.statusMessage
-      });
+        pictureUrl: profile.pictureUrl,
+        statusMessage: profile.statusMessage
+      }); */
     });
   }
 
