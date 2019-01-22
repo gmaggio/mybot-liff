@@ -22,20 +22,15 @@ class App extends Component {
     this.initialize();
   }
 
-  async initialize() {
-    console.log("test uhuy");
-    console.log("test uhuy 123");
-    let profile = await liff.getProfile();
-
-    console.log("-----> TEST");
-
-    fetch(
-      `https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`
-    ).then(txt => {
-      console.log("-----> Username:", txt);
-      this.setState({
-        displayName: txt,
-        userId: profile.userId
+  initialize() {
+    window.liff.init(async data => {
+      console.log(data);
+      fetch(`https://gio-mybot-api.herokuapp.com/user?query=123`).then(txt => {
+        console.log(txt);
+        this.setState({
+          displayName: "helo",
+          userId: 123
+        });
       });
     });
 
