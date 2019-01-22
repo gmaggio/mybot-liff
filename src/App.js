@@ -20,17 +20,16 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener("load", this.initialize);
-
-    // fetch("https://api.mydomain.com")
-    //   .then(response => response.json())
-    //   .then(data => this.setState({ data }));
   }
 
   initialize() {
     liff.init(async data => {
       let profile = await liff.getProfile();
 
-      fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
+      // fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
+      fetch(
+        "https://gio-mybot-api.herokuapp.com/user?query=U0f5fb32f6a062f730ce34506025d5cde"
+      )
         .then(response => response.json())
         .then(json => {
           console.log("-----> Username:", json);
