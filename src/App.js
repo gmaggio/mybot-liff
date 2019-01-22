@@ -24,27 +24,28 @@ class App extends Component {
     // fetch("https://api.mydomain.com")
     //   .then(response => response.json())
     //   .then(data => this.setState({ data }));
+
+    fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
+      .then(response => response.json())
+      .then(json => {
+        console.log("-----> Username:", json);
+        this.setState({
+          displayName: `${memberName} (${this..state.userId})`
+        });
+      });
   }
 
   initialize() {
     liff.init(async data => {
       let profile = await liff.getProfile();
-      let memberName = "";
 
-      fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
-        .then(response => response.json())
-        .then(json => {
-          console.log("-----> Username:", json);
-          memberName = json;
-
-          this.setState({
-            // displayName: profile.displayName,
-            displayName: `${memberName} (${profile.displayName})`,
-            userId: profile.userId,
-            pictureUrl: profile.pictureUrl,
-            statusMessage: profile.statusMessage
-          });
-        });
+      this.setState({
+        // displayName: profile.displayName,
+        // displayName: `${memberName} (${profile.displayName})`,
+        userId: profile.userId
+        // pictureUrl: profile.pictureUrl,
+        // statusMessage: profile.statusMessage
+      });
     });
   }
 
