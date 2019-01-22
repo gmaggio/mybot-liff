@@ -31,7 +31,7 @@ class App extends Component {
       fetch(
         `https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`
       ).then(txt => {
-        console.log("-----> Username:", json);
+        console.log("-----> Username:", txt);
         this.setState({
           displayName: txt,
           userId: profile.userId
