@@ -23,7 +23,9 @@ class App extends Component {
   }
 
   initialize() {
+    console.log("test uhuy");
     liff.init(async data => {
+      console.log("test uhuy 123");
       let profile = await liff.getProfile();
 
       console.log("-----> TEST");
