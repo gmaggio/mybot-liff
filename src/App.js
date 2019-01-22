@@ -26,6 +26,8 @@ class App extends Component {
     liff.init(async data => {
       let profile = await liff.getProfile();
 
+      console.log("-----> TEST");
+
       // fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
       fetch(
         "https://gio-mybot-api.herokuapp.com/user?query=U0f5fb32f6a062f730ce34506025d5cde"
