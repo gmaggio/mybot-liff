@@ -27,21 +27,21 @@ class App extends Component {
     liff.init(async data => {
       let profile = await liff.getProfile();
 
-      fetch(`https://gio-mybot-api.herokuapp.com/user?query=${profile.userId}`)
-        .then(result => result.json())
-        .then(data => {
-          this.setState({
-            displayName: data.data
-            // userId: profile.userId
-          });
-        });
+      // fetch(`https://gio-mybot-api.herokuapp.com/members?query=${profile.userId}`)
+      //   .then(result => result.json())
+      //   .then(data => {
+      //     this.setState({
+      //       displayName: data.data
+      //       // userId: profile.userId
+      //     });
+      //   });
 
-      // this.setState({
-      // displayName: profile.displayName,
-      // userId: data
-      // pictureUrl: profile.pictureUrl,
-      // statusMessage: profile.statusMessage
-      // });
+      this.setState({
+        // displayName: profile.displayName,
+        userId: data
+        // pictureUrl: profile.pictureUrl,
+        // statusMessage: profile.statusMessage
+      });
     });
   }
 
