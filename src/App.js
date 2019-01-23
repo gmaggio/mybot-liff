@@ -38,7 +38,7 @@ class App extends Component {
 
       this.setState({
         // displayName: profile.displayName,
-        userId: data
+        userId: data.context.groupId
         // pictureUrl: profile.pictureUrl,
         // statusMessage: profile.statusMessage
       });
