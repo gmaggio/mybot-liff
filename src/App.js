@@ -35,7 +35,9 @@ class App extends Component {
         .then(result => result.json())
         .then(data => {
           this.setState({
-            displayName: data.data[0].name
+            displayName: `${data.data[0].name}, ${data.data[1].name}, ${
+              data.data[2].name
+            }`
             // userId: profile.userId
           });
         });
