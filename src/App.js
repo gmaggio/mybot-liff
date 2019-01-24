@@ -75,6 +75,11 @@ class App extends Component {
 
             <section className="set-payer">
               <p>Siapa yang nalangin transaksi itu? Dan berapa?</p>
+              <ul>
+                {this.state.members.map((member, index) => (
+                  <li key={member.user_id}>{member.name}</li>
+                ))}
+              </ul>
             </section>
           </div>
         </div>
