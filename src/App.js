@@ -75,11 +75,16 @@ class App extends Component {
 
             <section className="set-payer">
               <p>Siapa yang nalangin transaksi itu? Dan berapa?</p>
-              <ul>
+              <div className="checklist select-members">
                 {this.state.members.map((member, index) => (
-                  <li key={member.user_id}>{member.name}</li>
+                  <div className="mui-checkbox" key={member.user_id}>
+                    <label>
+                      <input type="checkbox" value="" checked>
+                      {member.name}
+                    </label>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </section>
           </div>
         </div>
