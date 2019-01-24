@@ -105,6 +105,13 @@ html, body, #root {
 
 /* Elements */
 
+.checklist {}
+
+.checklist {}
+
+
+/* Elements Overwrite */
+
 input {
   color: #636363;
   padding: 14px 16px;
