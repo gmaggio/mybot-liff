@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   initialize() {
-    console.log("test uhuy");
     liff.init(async data => {
       fetch(
         `https://gio-mybot-api.herokuapp.com/members?query=${
@@ -28,6 +27,14 @@ class App extends Component {
       )
         .then(result => result.json())
         .then(data => {
+          // TEST: Test data
+          data.data.push({
+            name: "Test Aldi",
+            user_id: "123123"
+          });
+
+          console.log("-----> Data:", data.data);
+
           this.setState({
             members: data.data
           });
@@ -52,7 +59,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <div class="main">
+        <div className="main">
           <header className="header">
             {/* <img src={logo} className="logo" alt="logo" /> */}
             <h1 className="title">S E P L I T</h1>
@@ -62,12 +69,12 @@ class App extends Component {
           <div className="content-wrapper">
             <div className="content">
               <section className="form-input input-transaction-name">
-                <label for="transaction-name">Nama tagihan</label>
+                <label htmlFor="transaction-name">Nama tagihan</label>
                 <input type="text" name="transaction-name" />
               </section>
 
               <section className="form-input input-transaction-amt">
-                <label for="transaction-amt">Jumlah tagihan</label>
+                <label htmlFor="transaction-amt">Jumlah tagihan</label>
                 <div className="form-input-group">
                   <span className="form-input-prefix">Rp</span>
                   <input type="text" name="transaction-amt" />
