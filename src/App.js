@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import "./App.css";
 import { Button } from "muicss/react";
+import Spinner from "./components/Spinner/";
 
 const liff = window.liff;
 
@@ -8,7 +9,8 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      members: []
+      members: [],
+      loading: true
     };
     this.initialize = this.initialize.bind(this);
     this.closeApp = this.closeApp.bind(this);
@@ -29,7 +31,8 @@ class App extends PureComponent {
           .then(result => result.json())
           .then(data => {
             this.setState({
-              members: data.data
+              members: data.data,
+              loading: false
             });
           });
       },
@@ -45,7 +48,8 @@ class App extends PureComponent {
           });
         }
         this.setState({
-          members: tempData
+          members: tempData,
+          loading: false
         });
       }
     );
@@ -94,17 +98,10 @@ class App extends PureComponent {
                 <p>Siapa yang nalangin transaksi itu? Dan berapa?</p>
 
                 <div className="checklist-list select-members">
-                  {this.state.members.length === 0 ? (
-                    <p>Belum ada yang ikutan...</p>
+                  {this.state.loading === true ? (
+                    <Spinner />
                   ) : (
-                    this.state.members.map((member, index) => (
-                      <div className="mui-checkbox" key={member.user_id}>
-                        <label>
-                          <input type="checkbox" value="{member.user_id}" />
-                          {member.name}
-                        </label>
-                      </div>
-                    ))
+                    this.listMembers()
                   )}
                 </div>
               </section>
@@ -119,6 +116,21 @@ class App extends PureComponent {
         </div>
       </div>
     );
+  }
+
+  listMembers() {
+    if (this.state.members.length === 0) {
+      return <p>Belum ada yang ikutan...</p>;
+    } else {
+      return this.state.members.map((member, index) => (
+        <div className="mui-checkbox" key={member.user_id}>
+          <label>
+            <input type="checkbox" value="{member.user_id}" />
+            {member.name}
+          </label>
+        </div>
+      ));
+    }
   }
 }
 
