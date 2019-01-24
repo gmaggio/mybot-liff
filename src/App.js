@@ -80,8 +80,8 @@ class App extends Component {
                 {this.state.members.map((member, index) => (
                   <div className="mui-checkbox" key={member.user_id}>
                     <label>
-                      <input type="checkbox" value="{member.user_id}" checked>
-                      {member.name}
+                      <input type="checkbox" value="{member.user_id}" checked />
+                      >{member.name}
                     </label>
                   </div>
                 ))}
