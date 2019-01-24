@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Button } from "muicss/react";
 
@@ -25,8 +24,6 @@ class App extends Component {
   initialize() {
     console.log("test uhuy");
     liff.init(async data => {
-      let profile = await liff.getProfile();
-
       fetch(
         `https://gio-mybot-api.herokuapp.com/members?query=${
           data.context.groupId
