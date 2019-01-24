@@ -105,7 +105,11 @@ html, body, #root {
 
 .checklist {}
 
-.checklist input[type='checkbox'] {
+.checklist p + .checklist-list {
+  margin-top: 20px;
+}
+
+.checklist-list input[type='checkbox'] {
   margin: 4px;
 }
 

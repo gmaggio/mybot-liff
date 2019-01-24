@@ -19,27 +19,36 @@ class App extends Component {
   }
 
   initialize() {
-    liff.init(async data => {
-      fetch(
-        `https://gio-mybot-api.herokuapp.com/members?query=${
-          data.context.groupId
-        }`
-      )
-        .then(result => result.json())
-        .then(data => {
-          // TEST: Test data
-          data.data.push({
-            name: "Test Aldi",
-            user_id: "123123"
+    liff.init(
+      async data => {
+        fetch(
+          `https://gio-mybot-api.herokuapp.com/members?query=${
+            data.context.groupId
+          }`
+        )
+          .then(result => result.json())
+          .then(data => {
+            this.setState({
+              members: data.data
+            });
           });
+      },
+      err => {
+        console.log("-----> Error:", err);
 
-          console.log("-----> Data:", data.data);
-
-          this.setState({
-            members: data.data
+        // TEST: Test data
+        const tempData = [];
+        for (let i = 1; i <= 6; i++) {
+          tempData.push({
+            name: `Test User ${i}`,
+            user_id: `${i}`
           });
+        }
+        this.setState({
+          members: tempData
         });
-    });
+      }
+    );
   }
 
   closeApp(event) {
@@ -81,18 +90,22 @@ class App extends Component {
                 </div>
               </section>
 
-              <section className="set-payer">
+              <section className="set-payer checklist">
                 <p>Siapa yang nalangin transaksi itu? Dan berapa?</p>
 
-                <div className="checklist select-members">
-                  {this.state.members.map((member, index) => (
-                    <div className="mui-checkbox" key={member.user_id}>
-                      <label>
-                        <input type="checkbox" value="{member.user_id}" />
-                        {member.name}
-                      </label>
-                    </div>
-                  ))}
+                <div className="checklist-list select-members">
+                  {this.state.members.length === 0 ? (
+                    <p>Belum ada yang ikutan...</p>
+                  ) : (
+                    this.state.members.map((member, index) => (
+                      <div className="mui-checkbox" key={member.user_id}>
+                        <label>
+                          <input type="checkbox" value="{member.user_id}" />
+                          {member.name}
+                        </label>
+                      </div>
+                    ))
+                  )}
                 </div>
               </section>
             </div>
