@@ -8,10 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayName: "",
-      userId: "",
-      pictureUrl: "",
-      statusMessage: ""
+      members: []
     };
     this.initialize = this.initialize.bind(this);
     this.closeApp = this.closeApp.bind(this);
@@ -32,9 +29,7 @@ class App extends Component {
         .then(result => result.json())
         .then(data => {
           this.setState({
-            displayName: `${data.data[0].name}, ${data.data[1].name}, ${
-              data.data[2].name
-            }`
+            members: data.data
           });
         });
     });
