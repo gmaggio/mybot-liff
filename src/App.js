@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import './App.css'
+import './App.scss'
 import { Button } from 'muicss/react'
 import Spinner from './components/Spinner/'
 
