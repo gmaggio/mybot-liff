@@ -13,6 +13,11 @@ html, body, #root {
   flex-direction: column;
 }
 
+.main {
+  overflow: auto;
+  flex-grow: 1;
+}
+
 
 /* Header */
 
@@ -57,9 +62,7 @@ html, body, #root {
 /* Contents */
 
 .content-wrapper {
-  padding: 0 16px 16px;
-  overflow: auto;
-  flex-grow: 1;
+  padding: 4px 16px 16px;
 }
 
 .content {}

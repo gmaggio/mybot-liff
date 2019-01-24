@@ -52,41 +52,43 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <header className="header">
-          {/* <img src={logo} className="logo" alt="logo" /> */}
-          <h1 className="title">S E P L I T</h1>
-          <h2 className="subtitle">Patungan Jadi Gampang</h2>
-        </header>
+        <div class="main">
+          <header className="header">
+            {/* <img src={logo} className="logo" alt="logo" /> */}
+            <h1 className="title">S E P L I T</h1>
+            <h2 className="subtitle">Patungan Jadi Gampang</h2>
+          </header>
 
-        <div className="content-wrapper">
-          <div className="content">
-            <section className="form-input input-transaction-name">
-              <label for="transaction-name">Nama tagihan</label>
-              <input type="text" name="transaction-name" />
-            </section>
+          <div className="content-wrapper">
+            <div className="content">
+              <section className="form-input input-transaction-name">
+                <label for="transaction-name">Nama tagihan</label>
+                <input type="text" name="transaction-name" />
+              </section>
 
-            <section className="form-input input-transaction-amt">
-              <label for="transaction-amt">Jumlah tagihan</label>
-              <div className="form-input-group">
-                <span className="form-input-prefix">Rp</span>
-                <input type="text" name="transaction-amt" />
-              </div>
-            </section>
+              <section className="form-input input-transaction-amt">
+                <label for="transaction-amt">Jumlah tagihan</label>
+                <div className="form-input-group">
+                  <span className="form-input-prefix">Rp</span>
+                  <input type="text" name="transaction-amt" />
+                </div>
+              </section>
 
-            <section className="set-payer">
-              <p>Siapa yang nalangin transaksi itu? Dan berapa?</p>
+              <section className="set-payer">
+                <p>Siapa yang nalangin transaksi itu? Dan berapa?</p>
 
-              <div className="checklist select-members">
-                {this.state.members.map((member, index) => (
-                  <div className="mui-checkbox" key={member.user_id}>
-                    <label>
-                      <input type="checkbox" value="{member.user_id}" />
-                      {member.name}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </section>
+                <div className="checklist select-members">
+                  {this.state.members.map((member, index) => (
+                    <div className="mui-checkbox" key={member.user_id}>
+                      <label>
+                        <input type="checkbox" value="{member.user_id}" />
+                        {member.name}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
           </div>
         </div>
 
