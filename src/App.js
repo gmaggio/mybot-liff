@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import "./App.css";
 import { Button } from "muicss/react";
 
 const liff = window.liff;
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
