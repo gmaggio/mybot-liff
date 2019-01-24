@@ -38,16 +38,8 @@ class App extends Component {
             displayName: `${data.data[0].name}, ${data.data[1].name}, ${
               data.data[2].name
             }`
-            // userId: profile.userId
           });
         });
-
-      this.setState({
-        // displayName: profile.displayName,
-        userId: data.context.groupId
-        // pictureUrl: profile.pictureUrl,
-        // statusMessage: profile.statusMessage
-      });
     });
   }
 
@@ -67,20 +59,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <div className="app">
+        <header className="header">
+          {/* <img src={logo} className="logo" alt="logo" /> */}
+          <h1 className="title">S E P L I T</h1>
+          <h2 className="subtitle">Patungan Jadi Gampang</h2>
         </header>
-        <div style={{ height: "20px" }} />
-        <p className="App-intro">
-          Display Name : {this.state.displayName} <br />
-          User ID : {this.state.userId} <br />
-          {/* Status Msg : {this.state.statusMessage} */}
-        </p>
-        <Button color="primary" onClick={this.closeApp}>
-          Close
-        </Button>
+
+        <div className="body">
+          <div class="content">Content</div>
+        </div>
+
+        <div class="actions">
+          <Button color="primary" onClick={this.closeApp}>
+            Close
+          </Button>
+        </div>
       </div>
     );
   }
