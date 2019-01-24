@@ -1,23 +1,23 @@
-import React, { PureComponent } from "react";
-import "./App.css";
-import { Button } from "muicss/react";
-import Spinner from "./components/Spinner/";
+import React, { PureComponent } from 'react'
+import './App.css'
+import { Button } from 'muicss/react'
+import Spinner from './components/Spinner/'
 
-const liff = window.liff;
+const liff = window.liff
 
 class App extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       members: [],
-      loading: true
-    };
-    this.initialize = this.initialize.bind(this);
-    this.closeApp = this.closeApp.bind(this);
+      loading: true,
+    }
+    this.initialize = this.initialize.bind(this)
+    this.closeApp = this.closeApp.bind(this)
   }
 
   componentDidMount() {
-    window.addEventListener("load", this.initialize);
+    window.addEventListener('load', this.initialize)
   }
 
   initialize() {
@@ -26,47 +26,47 @@ class App extends PureComponent {
         fetch(
           `https://gio-mybot-api.herokuapp.com/members?query=${
             data.context.groupId
-          }`
+          }`,
         )
           .then(result => result.json())
           .then(data => {
             this.setState({
               members: data.data,
-              loading: false
-            });
-          });
+              loading: false,
+            })
+          })
       },
       err => {
-        console.log("-----> Error:", err);
+        console.log('-----> Error:', err)
 
         // TEST: Test data
-        const tempData = [];
+        const tempData = []
         for (let i = 1; i <= 6; i++) {
           tempData.push({
             name: `Test User ${i}`,
-            user_id: `${i}`
-          });
+            user_id: `${i}`,
+          })
         }
         this.setState({
           members: tempData,
-          loading: false
-        });
-      }
-    );
+          loading: false,
+        })
+      },
+    )
   }
 
   closeApp(event) {
-    event.preventDefault();
+    event.preventDefault()
     liff
       .sendMessages([
         {
-          type: "text",
-          text: "Thank you, Bye!"
-        }
+          type: 'text',
+          text: 'Thank you, Bye!',
+        },
       ])
       .then(() => {
-        liff.closeWindow();
-      });
+        liff.closeWindow()
+      })
   }
 
   render() {
@@ -115,12 +115,12 @@ class App extends PureComponent {
           </Button>
         </div>
       </div>
-    );
+    )
   }
 
   listMembers() {
     if (this.state.members.length === 0) {
-      return <p>Belum ada yang ikutan...</p>;
+      return <p>Belum ada yang ikutan...</p>
     } else {
       return this.state.members.map((member, index) => (
         <div className="mui-checkbox" key={member.user_id}>
@@ -129,9 +129,9 @@ class App extends PureComponent {
             {member.name}
           </label>
         </div>
-      ));
+      ))
     }
   }
 }
 
-export default App;
+export default App
