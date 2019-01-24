@@ -58,7 +58,7 @@ class App extends Component {
           <h2 className="subtitle">Patungan Jadi Gampang</h2>
         </header>
 
-        <div className="body">
+        <div className="content-wrapper">
           <div className="content">
             <section className="form-input input-transaction-name">
               <label for="transaction-name">Nama tagihan</label>

@@ -18,7 +18,7 @@ html, body, #root {
 
 .header {
   text-align: center;
-  padding: 20px 0 33px;
+  padding: 20px 0;
 }
 
 .header h1,
@@ -56,8 +56,8 @@ html, body, #root {
 
 /* Contents */
 
-.body {
-  padding: 16px;
+.content-wrapper {
+  padding: 0 16px 16px;
   overflow: auto;
   flex-grow: 1;
 }
@@ -68,12 +68,6 @@ html, body, #root {
 
 .content > section:not(:first-child) {
   margin-top: 20px;
-}
-
-.form-input {}
-
-.form-input label {
-  display: block;
 }
 
 .form-input {}
