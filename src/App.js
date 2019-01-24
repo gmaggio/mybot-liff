@@ -81,7 +81,7 @@ class App extends Component {
                   <div className="mui-checkbox" key={member.user_id}>
                     <label>
                       <input type="checkbox" value="{member.user_id}" checked />
-                      >{member.name}
+                      {member.name}
                     </label>
                   </div>
                 ))}
