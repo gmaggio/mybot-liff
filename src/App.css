@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat|Roboto');
+
+html, body, #root {
+  height: 100%;
+}
+
+.app {
+  color: #636363;
+  font-family: Roboto;
+  font-size: 14px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  overflow: auto;
+  flex-grow: 1;
+}
+
+
+/* Header */
+
+.header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.header h1,
+.header h2 {
+  margin: 0;
+}
+
+.header .title {
+  color: #679eb8;
+  font-family: 'Fredoka One';
+  font-size: 30px;
+  line-height: 1;
+}
+
+.header .subtitle {
+  color: #636363;
+  font-family: Montserrat;
+  font-size: 12px;
+  line-height: 1;
+  margin-top: 12px;
+}
+
+
+/* Action Footer */
+
+.actions {
+  padding: 16px;
+}
+
+.actions Button {
+  width: 100%;
+  margin: 0;
+}
+
+
+/* Contents */
+
+.content-wrapper {
+  padding: 4px 16px 16px;
+}
+
+.content {}
+
+.content > section {}
+
+.content > section:not(:first-child) {
+  margin-top: 20px;
+}
+
+.form-input {}
+
+.form-input > label {
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-input > input {
+  width: 100%;
+}
+
+.form-input-group {
+  display: flex;
+  align-items: center;
+}
+
+.form-input-group > input {
+  flex-grow: 1;
+}
+
+.form-input-prefix {
+  color: #000;
+  font-size: 18px;
+  margin-right: 12px;
+  margin-left: 4px;
+}
+
+
+/* Elements */
+
+.checklist {}
+
+.checklist p + .checklist-list {
+  margin-top: 20px;
+}
+
+.checklist-list input[type='checkbox'] {
+  margin: 4px;
+}
+
+
+/* Elements Overwrite */
+
+input {
+  color: #636363;
+  padding: 14px 16px;
+  border: solid;
+  border-color: #e0e0e0;
+  border-width: 1px !important;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.app .mui-btn {
+  letter-spacing: 0.1em;
+  border-radius: 20px;
+}
+.mui-btn--primary {
+  background: #679eb8;
+}
+.mui-btn.mui--is-disabled, .mui-btn:disabled {
+  background: #e0e0e0;
+  opacity: 1;
+}
